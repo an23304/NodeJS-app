@@ -15,8 +15,8 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 sh '''
-                podman rm -f node-app || true
-                podman run -d --name node-app -p 3000:3000 node-app:latest
+                sudo podman rm -f node-app || true
+                sudo podman run -d --name node-app -p 3000:3000 node-app:latest
                 '''
             }
         }
