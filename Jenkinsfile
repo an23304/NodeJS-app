@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'podman build -t node-app:latest .'
+                sh 'sudo podman build -t node-app:latest .'
             }
         }
         stage('Deploy Container') {
