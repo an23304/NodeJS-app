@@ -9,14 +9,14 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t node-app:latest .'
+                sh 'podman build -t node-app:latest .'
             }
         }
         stage('Deploy Container') {
             steps {
                 sh '''
-                docker rm -f node-app || true
-                docker run -d --name node-app -p 3000:3000 node-app:latest
+                podman rm -f node-app || true
+                podman run -d --name node-app -p 3000:3000 node-app:latest
                 '''
             }
         }
